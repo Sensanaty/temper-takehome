@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col">
+  <div class="flex flex-col" data-testid="post-list-wrapper">
     <TransitionGroup name="posts">
       <PostItem
         v-for="(post, index) in posts"
@@ -8,6 +8,7 @@
         :index="index"
         :is-first-item="posts[0].id === post.id"
         :is-last-item="posts[posts.length - 1].id === post.id"
+        data-testid="post-item-wrapper"
       />
     </TransitionGroup>
   </div>
