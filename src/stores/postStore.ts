@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { MovementDirection, PostItem } from "~/stores/types/post";
 import { api } from "~/modules/fetch";
+import useHistoryStore from "~/stores/historyStore";
 
 const usePostStore = defineStore("post", {
   state: () => {
@@ -23,10 +24,12 @@ const usePostStore = defineStore("post", {
     },
 
     movePost(index: number, direction: MovementDirection) {
+      const { recordHistory } = useHistoryStore();
       const post = this.posts?.splice(index, 1)[0];
       const newIndex = direction === MovementDirection.UP ? index - 1 : index + 1;
 
       this.posts?.splice(newIndex, 0, post);
+      recordHistory(post.id, index, newIndex, [...this.posts]);
     }
   }
 })

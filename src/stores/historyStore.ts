@@ -1,16 +1,24 @@
 import { defineStore } from "pinia";
-import { HistoryItem } from "~/stores/types/history";
+import type { HistoryItem } from "~/stores/types/history";
+import type { PostItem } from "~/stores/types/post";
 
 const useHistoryStore = defineStore("history", {
   state: () => {
     return {
-      history: [
-        { id: 1, description: "From 1 to 5", snapshot: [{ id: 1, title: "Hello" }] },
-        { id: 2, description: "From 2 to 6", snapshot: [{ id: 1, title: "Hello" }] },
-        { id: 3, description: "From 3 to 7", snapshot: [{ id: 1, title: "Hello" }] },
-      ] as HistoryItem[]
+      history: [] as HistoryItem[]
     }
   },
+
+  actions: {
+    recordHistory(postId: PostItem["id"], oldIndex: number, newIndex: number, snapshot: HistoryItem["snapshot"]) {
+      const item: HistoryItem = {
+        description: `Moved post ${postId} from index ${oldIndex} to index ${newIndex}`,
+        snapshot,
+      };
+
+      this.history.unshift(item);
+    }
+  }
 })
 
 export default useHistoryStore;
