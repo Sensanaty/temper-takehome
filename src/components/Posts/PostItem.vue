@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center bg-white rounded-xl w-full min-h-[120px] mb-6 px-4 py-3 shadow-md">
     <p class="mr-1">
-      {{ post.title }}
+      Post {{ post.id }}
     </p>
 
     <div class="button-wrapper">
