@@ -28,8 +28,8 @@ const usePostStore = defineStore("post", {
       const post = this.posts?.splice(index, 1)[0];
       const newIndex = direction === MovementDirection.UP ? index - 1 : index + 1;
 
-      this.posts?.splice(newIndex, 0, post);
       recordHistory(post.id, index, newIndex, [...this.posts]);
+      this.posts?.splice(newIndex, 0, post);
     }
   }
 })
