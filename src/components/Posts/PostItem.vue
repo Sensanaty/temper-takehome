@@ -1,18 +1,18 @@
 <template>
   <div class="flex items-center bg-white rounded-xl w-full min-h-[120px] mb-6 px-4 py-3 shadow-md">
-    <p class="mr-1">
+    <p class="mr-1" data-testid="item-id">
       Post {{ post.id }}
     </p>
 
     <div class="button-wrapper">
-      <button class="caret-button" :disabled="isFirstItem" @click="move(MovementDirection.UP)">
+      <button class="caret-button" :disabled="isFirstItem" data-testid="move-up" @click="move(MovementDirection.UP)">
         <Transition mode="out-in">
           <PhCaretUp v-if="!isFirstItem" class="text-accent-900" weight="bold" :size="24" />
         </Transition>
       </button>
 
 
-      <button class="caret-button" :disabled="isLastItem" @click="move(MovementDirection.DOWN)">
+      <button class="caret-button" :disabled="isLastItem" data-testid="move-down" @click="move(MovementDirection.DOWN)">
         <Transition mode="out-in">
           <PhCaretDown v-if="!isLastItem" class="text-accent-900" weight="bold" :size="24" />
         </Transition>
