@@ -6,7 +6,6 @@
     "allowSyntheticDefaultImports": true,
     "paths": {
       "~/*": ["./src/*"],
-      "~components/*": ["./src/components/*"]
     }
   },
   "include": ["vite.config.ts"]

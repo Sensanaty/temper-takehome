@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [],
   resolve: {
     alias: {
-      "~/": `${resolvedPath}/`,
+      "~/*": `${resolvedPath}/*`,
     }
   }
 });
