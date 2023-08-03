@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { PostItem } from "~/stores/types/post";
+import { MovementDirection, PostItem } from "~/stores/types/post";
 import { api } from "~/modules/fetch";
 
 const usePostStore = defineStore("post", {
@@ -20,6 +20,13 @@ const usePostStore = defineStore("post", {
       } catch (error) {
         return Promise.reject(error);
       }
+    },
+
+    movePost(index: number, direction: MovementDirection) {
+      const post = this.posts?.splice(index, 1)[0];
+      const newIndex = direction === MovementDirection.UP ? index - 1 : index + 1;
+
+      this.posts?.splice(newIndex, 0, post);
     }
   }
 })

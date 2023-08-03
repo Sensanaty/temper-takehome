@@ -1,6 +1,15 @@
 <template>
   <div class="flex flex-col">
-    <PostItem v-for="post in posts" :key="post.id" :post="post" />
+    <TransitionGroup name="posts">
+      <PostItem
+        v-for="(post, index) in posts"
+        :key="post.id"
+        :post="post"
+        :index="index"
+        :is-first-item="posts[0].id === post.id"
+        :is-last-item="posts[posts.length - 1].id === post.id"
+      />
+    </TransitionGroup>
   </div>
 </template>
 
@@ -15,3 +24,15 @@
 
   await postStore.fetchPosts();
 </script>
+
+<style scoped>
+.posts-move,
+.posts-enter-active,
+.posts-leave-active {
+  transition: all 250ms ease;
+}
+
+.posts-leave-active {
+  position: absolute;
+}
+</style>
