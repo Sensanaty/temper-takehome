@@ -25,6 +25,14 @@ const usePostStore = defineStore("post", {
     },
 
     movePost(index: number, direction: MovementDirection) {
+      if (
+        index > this.posts.length ||
+        (index === 0 && direction === MovementDirection.UP) ||
+        (index === this.posts.length - 1 && direction === MovementDirection.DOWN)
+      ) {
+        return;
+      }
+
       const currentPosts = [...this.posts];
       const { recordHistory } = useHistoryStore();
       const post = this.posts?.splice(index, 1)[0];
