@@ -1,7 +1,7 @@
 <template>
   <SlantedBanner />
 
-  <div class="flex flex-row gap-28 min-h-[75%]">
+  <div class="flex flex-row gap-28 min-h-[75%] mb-12">
     <div class="flex flex-col flex-half mt-16 pl-72 ml-auto">
       <h1 class="font-bold mb-4 text-3xl text-white">
         Sortable Post List
