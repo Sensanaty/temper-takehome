@@ -1,4 +1,4 @@
-export type Post = {
+export type PostItem = {
   readonly id: number;
   title: string;
 }

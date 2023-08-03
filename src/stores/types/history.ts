@@ -1,6 +1,6 @@
-import { Post } from "~/stores/types/post";
+import { PostItem } from "~/stores/types/post";
 
 export type HistoryItem = {
   description: string;
-  snapshot: Array<Post>
+  snapshot: Array<PostItem>
 }
