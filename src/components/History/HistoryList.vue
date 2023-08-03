@@ -6,7 +6,7 @@
 
     <div class="rounded-b-xl px-4 py-3">
       <span v-if="history && history.length > 0">
-        <HistoryItem v-for="historyItem in history" :key="historyItem.id" :history="historyItem" :has-siblings="history.length > 1" />
+        <HistoryItem v-for="(historyItem, index) in history" :key="historyItem.id" :history="historyItem" :index="index" :has-siblings="history.length > 1" />
       </span>
 
       <CardItem v-else text="No actions committed recently" />

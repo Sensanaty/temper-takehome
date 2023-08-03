@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import type { HistoryItem } from "~/stores/types/history";
 import type { PostItem } from "~/stores/types/post";
+import usePostStore from "~/stores/postStore";
 
 const useHistoryStore = defineStore("history", {
   state: () => {
@@ -18,6 +19,13 @@ const useHistoryStore = defineStore("history", {
       };
 
       this.history.unshift(item);
+    },
+
+    timeTravel(index: number) {
+      const { setPostsToSnapshot } = usePostStore();
+
+      setPostsToSnapshot(this.history[index].snapshot);
+      this.history = this.history.slice(index + 1);
     }
   }
 })

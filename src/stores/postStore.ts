@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { MovementDirection, PostItem } from "~/stores/types/post";
 import { api } from "~/modules/fetch";
 import useHistoryStore from "~/stores/historyStore";
+import { HistoryItem } from "~/stores/types/history";
 
 const usePostStore = defineStore("post", {
   state: () => {
@@ -24,12 +25,17 @@ const usePostStore = defineStore("post", {
     },
 
     movePost(index: number, direction: MovementDirection) {
+      const currentPosts = [...this.posts]
       const { recordHistory } = useHistoryStore();
       const post = this.posts?.splice(index, 1)[0];
       const newIndex = direction === MovementDirection.UP ? index - 1 : index + 1;
 
-      recordHistory(post.id, index, newIndex, [...this.posts]);
+      recordHistory(post.id, index, newIndex, currentPosts);
       this.posts?.splice(newIndex, 0, post);
+    },
+
+    setPostsToSnapshot(snapshot: HistoryItem["snapshot"]) {
+      this.posts = snapshot;
     }
   }
 })
