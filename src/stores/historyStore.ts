@@ -12,6 +12,7 @@ const useHistoryStore = defineStore("history", {
   actions: {
     recordHistory(postId: PostItem["id"], oldIndex: number, newIndex: number, snapshot: HistoryItem["snapshot"]) {
       const item: HistoryItem = {
+        id: crypto.randomUUID(),
         description: `Moved post ${postId} from index ${oldIndex} to index ${newIndex}`,
         snapshot,
       };
