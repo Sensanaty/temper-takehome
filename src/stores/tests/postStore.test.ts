@@ -29,11 +29,11 @@ describe("Post store", () => {
       [1, MovementDirection.UP, 0],
       [0, MovementDirection.UP, 0],
 
-      [4, MovementDirection.DOWN, 4],
-      [3, MovementDirection.DOWN, 4],
-      [2, MovementDirection.DOWN, 3],
-      [1, MovementDirection.DOWN, 2],
       [0, MovementDirection.DOWN, 1],
+      [1, MovementDirection.DOWN, 2],
+      [2, MovementDirection.DOWN, 3],
+      [3, MovementDirection.DOWN, 4],
+      [4, MovementDirection.DOWN, 4],
     ];
 
     it.each(cases)("Moving index %i '%s' moves it to index %i", (index, direction, expectedIndex) => {
