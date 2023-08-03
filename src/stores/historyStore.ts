@@ -7,7 +7,7 @@ const useHistoryStore = defineStore("history", {
   state: () => {
     return {
       history: [] as HistoryItem[]
-    }
+    };
   },
 
   actions: {
@@ -28,6 +28,6 @@ const useHistoryStore = defineStore("history", {
       this.history = this.history.slice(index + 1);
     }
   }
-})
+});
 
 export default useHistoryStore;

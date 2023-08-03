@@ -8,13 +8,13 @@ const usePostStore = defineStore("post", {
   state: () => {
     return {
       posts: [] as PostItem[]
-    }
+    };
   },
 
   actions: {
     async fetchPosts(start = 0, limit = 5, page = 1) {
       try {
-        const response = await api.get("posts", { params: { "_page": page, "_start": start, "_limit": limit } })
+        const response = await api.get("posts", { params: { "_page": page, "_start": start, "_limit": limit } });
 
         this.posts = response.data;
 
@@ -25,7 +25,7 @@ const usePostStore = defineStore("post", {
     },
 
     movePost(index: number, direction: MovementDirection) {
-      const currentPosts = [...this.posts]
+      const currentPosts = [...this.posts];
       const { recordHistory } = useHistoryStore();
       const post = this.posts?.splice(index, 1)[0];
       const newIndex = direction === MovementDirection.UP ? index - 1 : index + 1;
@@ -38,6 +38,6 @@ const usePostStore = defineStore("post", {
       this.posts = snapshot;
     }
   }
-})
+});
 
 export default usePostStore;
