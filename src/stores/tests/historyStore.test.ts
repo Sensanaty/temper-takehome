@@ -32,6 +32,7 @@ describe("History Store", () => {
       postStore.posts = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 0 }];
       historyStore.recordHistory(0, 3, 4, [...posts]);
 
+      expect(postStore.posts).not.toEqual(posts);
       expect(historyStore.history.length).toBe(1);
       historyStore.timeTravel(0);
 
