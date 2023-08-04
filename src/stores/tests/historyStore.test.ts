@@ -26,9 +26,17 @@ describe("History Store", () => {
   });
 
   describe("timeTravel", () => {
-    it("properly timetravels to a chosen snapshot", () => {
+    it("properly timetravels to a provided snapshot", () => {
+      const postStore = usePostStore();
       const historyStore = useHistoryStore();
+      postStore.posts = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 0 }];
+      historyStore.recordHistory(0, 3, 4, [...posts]);
 
+      expect(historyStore.history.length).toBe(1);
+      historyStore.timeTravel(0);
+
+      expect(historyStore.history.length).toBe(0);
+      expect(postStore.posts).toEqual(posts);
     });
   });
 });
