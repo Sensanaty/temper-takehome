@@ -38,14 +38,14 @@
   @apply flex flex-col flex-half mt-8 pr-72 mr-auto;
 }
 
-@media screen and (max-width: 1024px) {
-  .post-list-wrapper { @apply pl-48 }
-  .history-list-wrapper { @apply pr-48 }
+@media screen and (max-width: 1260px) {
+  .post-list-wrapper { @apply pl-32 }
+  .history-list-wrapper { @apply pr-32 }
 }
 
-@media screen and (max-width: 768px) {
-  .post-list-wrapper { @apply px-24 mb-0; }
-  .history-list-wrapper { @apply px-24 mx-auto mt-0; }
+@media screen and (max-width: 860px) {
+  .post-list-wrapper { @apply px-16 mx-0 mb-0; }
+  .history-list-wrapper { @apply px-16 mx-auto mt-0; }
   .content-wrapper { @apply flex-col gap-0; }
 }
 

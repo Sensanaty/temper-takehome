@@ -1,6 +1,8 @@
 <template>
   <CardItem class="flex flex-row items-center" :has-border="hasSiblings">
-    <p>{{ history.description }}</p>
+    <p class="pr-2.5">
+      {{ history.description }}
+    </p>
 
     <button class="font-bold bg-accent text-primary-900 ml-auto rounded-md px-3 py-2 hover:bg-accent-100 active:bg-accent-200" @click="timeTravel(index)">
       Time Travel
