@@ -1,5 +1,5 @@
 <template>
-  <CardItem class="flex flex-row items-center" :has-border="hasSiblings">
+  <CardItem class="flex flex-row items-center">
     <p class="pr-2.5">
       {{ history.description }}
     </p>
@@ -17,7 +17,6 @@
 
   defineProps<{
     history: HistoryItem,
-    hasSiblings?: boolean,
     index: number,
   }>();
 

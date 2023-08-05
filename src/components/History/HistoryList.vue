@@ -8,7 +8,7 @@
       <Transition mode="out-in">
         <span v-if="history && history.length > 0">
           <TransitionGroup name="histories" type="animation">
-            <HistoryItem v-for="(historyItem, index) in history" :key="historyItem.id" :history="historyItem" :index="index" :has-siblings="history.length > 1" />
+            <HistoryItem v-for="(historyItem, index) in history" :key="historyItem.id" :history="historyItem" :index="index" />
           </TransitionGroup>
         </span>
 
