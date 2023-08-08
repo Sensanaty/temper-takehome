@@ -62,7 +62,7 @@ describe("PostItem", () => {
     expect(!wrapper.getByTestId("move-down"));
   });
 
-  it("should hide the both buttons if it's the only post", () => {
+  it("should hide both buttons if it's the only post", () => {
     const wrapper = setup({
       propsData: {
         post: { id: 1 } as PostItemType,
